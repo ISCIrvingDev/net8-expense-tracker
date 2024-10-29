@@ -1,0 +1,5 @@
+* Inicializar la migracion
+Add-Migration "Initial Create"
+
+* Sincronizar con la BD
+Update-Database
