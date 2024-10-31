@@ -1,4 +1,15 @@
-﻿@model Expense_Tracker.Models.Category
+﻿@*
+    // Notas de ASP.Net MVC
+value="@Model.Title" -> Es el "Single Binding: Attribute Binding"
+    * Para que funcione, se tiene que agregar el -> name="Title"
+
+asp-for -> Es el "Two-way Binding" de ASP.Net MVC
+
+    // Notas de Syncfusion
+ejs-for -> Es el "Two-way Binding" de Syncfusion
+*@
+
+@model Expense_Tracker.Models.Category
 
 @{
     ViewData["Title"] = "Create";
@@ -12,6 +23,30 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @* // Ejemplo con Syncfusion *@
+            <div class="mb-3">
+                @* <ejs-textbox id="title" name="Title" placeholder="Title" value="@Model.Title" floatLabelType="Always"></ejs-textbox> *@
+                <ejs-textbox id="title" placeholder="Title" ejs-for="Title" floatLabelType="Always"></ejs-textbox>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <ejs-textbox id="icon" placeholder="Icon" ejs-for="Icon" floatLabelType="Always"></ejs-textbox>
+                <span asp-validation-for="Icon" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <ejs-textbox id="type" placeholder="Type" ejs-for="Type" floatLabelType="Always"></ejs-textbox>
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+
+            @*
+                // Ejemplo con Bootstrap
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
@@ -29,7 +64,7 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+            </div> *@
         </form>
     </div>
 </div>
